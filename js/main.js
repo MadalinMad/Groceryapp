@@ -42,7 +42,7 @@
 					{id: 5, name : "insalata fresca", type : "verdure", expiration: expiresIn(7), img: 'img/verdure.svg'},
 					{id: 6, name : "sedano", type : "verdure", expiration: expiresIn(5), img: 'img/verdure.svg'},
 					{id: 7, name : "peperoni", type : "verdure", expiration: expiresIn(8), img: 'img/verdure.svg'},
-					{id: 8, name : "cola cola", type : "bibite", expiration: expiresIn(365), img: 'img/bibite.svg'},
+					{id: 8, name : "coca cola", type : "bibite", expiration: expiresIn(365), img: 'img/bibite.svg'},
 					{id: 9, name : "vitello tonnato", type : "altro", expiration: expiresIn(15), img: 'img/altro.svg'},
 				],				
 				fridge:{
