@@ -1,0 +1,399 @@
+        /*BASE CSS */
+        @font-face {
+			font-family: 'Neometric Bold';
+			font-style: normal;
+			font-weight: normal;
+			src: local('Neometric Bold'), url('../fonts/Neometric Alt Bold (Regular).woff') format('woff');
+			}
+		@font-face {
+			font-family: 'Neometric Medium';
+			font-style: normal;
+			font-weight: normal;
+			src: local('Neometric Medium'), url('../fonts/Neometric Medium (Regular).woff') format('woff');
+			}
+
+    	*{
+    		font-family:'Neometric Medium';
+    		margin:0;
+    		padding:0;
+    		box-sizing:border-box;
+    	}
+    	h2{
+            font-size:24px;
+    		color:#333;
+    		font-weight:bolder;
+    	}
+    	input:focus{
+    		outline:none;
+    	}
+        select:focus{
+            outline:none;
+        }
+        select {
+                -webkit-appearance: button;
+                -moz-appearance: button;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -webkit-padding-end: 20px;
+                -moz-padding-end: 20px;
+                -webkit-padding-start: 20px;
+                -moz-padding-start: 20px;
+                border-radius:8px;
+                background-position: center right;
+                background-repeat: no-repeat;
+                background-color:#white;
+                color: #555;
+                font-size: inherit;
+                margin: 0;
+                overflow: hidden;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+        }
+       ::-webkit-scrollbar {
+            width: 10px;
+        }
+         
+        ::-webkit-scrollbar-track {
+            background-color:transparent;
+        }
+         
+        ::-webkit-scrollbar-thumb {
+            width:4px;
+            background-color:#e0e0e0;
+            border-radius:16px;
+        }
+
+
+        /* STATIC */
+    	.active{
+    		background-color:#f2c94c!important;
+    		color:white;
+    	} 
+     
+    	#mad-app{
+    		width:100%;
+    		background-color:#f2f2f2;
+    		height:100vh;
+    	} 
+    	.mad-section-header{
+    		clear:both;
+    		overflow:hidden;
+            margin-top:2em;
+    		margin-bottom:2em;
+            width:100%;
+            margin-left:auto;
+    	}
+    	.mad-section-header div{
+    		display:block;
+    		float:left;
+    	}
+    	.mad-section-title{
+    		line-height:42px;
+    		width:calc(100% - 42px);
+    	}
+    	#mad-shelve-all{
+    		left:auto;
+    		width:42px;
+    		height:42px;
+    		background-color:#f2c94c;
+    		border-radius:8px;
+    		overflow:hidden;
+    		transition:0.2s;
+    	}
+    
+    	#mad-shelve-all img{
+    		width:18px;
+    		height:18px;
+    		display:block;
+    		margin:auto;
+    		margin-top:12px;
+    	}
+    	.mad-tools-container{
+    		margin-bottom:1em;
+    		overflow:hidden;
+             width:100%;
+            margin-left:auto;
+    	}
+    	.mad-inputbox{
+    		font-size:14px;
+    		border:none;
+    		display:inline-block;
+    		line-height:1.5em;
+    		padding:0.2em;
+    		background-color:transparent;
+    		color:#bdbdbd;
+    	}
+        .mad-inputbox::placeholder{
+            color:#bdbdbd;
+        }
+    	.mad-tools-subcontainer{
+    		display:block;
+    		float:left;
+    		width:50%;
+    		color:#bdbdbd;;
+    		font-size:14px;
+    	}
+    	#mad-sorter img{
+    		display:block;
+    		height:80%;
+    		width:80%;
+    		margin:auto;
+    		margin-top:10%;
+    	}
+    	.mad-tools-subcontainer:nth-child(1){
+    		width:75%;	
+    	}	
+    	.mad-tools-subcontainer:nth-child(2){
+    		width:25%;
+    	}
+
+    	.mad-tools-subcontainer:nth-child(2) div{
+    		display:block;
+    		float:left;
+    		line-height:1.8em;
+    		height:24px;
+    		width:24px;    		
+    	}
+		.mad-tools-subcontainer:nth-child(2) div:nth-child(1){
+			width:calc(100% - 24px);
+			text-align:right;
+			padding-right:0.5em;
+		}   		 
+		.mad-tools-subcontainer:nth-child(2) div:nth-child(2){
+			width:20px;
+			height:20px;
+		}   
+		.mad-tools-subcontainer:nth-child(2) div:nth-child(2){
+			cursor:pointer;
+		}   	
+    	.mad-bags, .mad-fridge{
+    		overflow:hidden;
+    		padding:1em;
+    		display: block;
+    		float:left;
+            height:100vh;
+    	}
+    	.mad-bags{
+            height:100vh;
+    		width: 40%;
+    	}
+        .mad-grocery-list{
+            height:80vh;
+            overflow:scroll;
+            overflow-x:hidden;
+            width:100%;
+            margin-left:auto;
+            padding-bottom:2em;
+        }
+        .mad-grocery-item{
+            display:block;
+            width: 98%;
+            margin-bottom:0.5em;
+            padding:0.5em 0.5em;
+            padding-right:1em;
+            background-color:#e0e0e0;
+            color: #333;
+            border-radius:16px;
+            transition:0.2s;
+        }
+        .mad-grocery-item-content{
+            overflow:hidden;
+        }   
+        .mad-grocery-item-content span{
+            display:block;
+            float:left;
+            font-size:14px;
+        }
+        .mad-nuovo div span:nth-child(1) img{
+            height:50%;
+            width:50%;
+            margin:auto;
+            margin-top:25%;
+        }
+        .mad-grocery-item-content span:nth-child(1) img{
+            height:70%;
+            width:70%;
+            display:block;
+            margin:auto;
+            margin-top:15%;
+        }
+        .mad-grocery-item-content span:nth-child(1){
+            display:inline-block;
+            width:48px;
+            height:48px;
+            background-color:#EDEDED;
+            border-radius:12px;
+            margin-right:10px;
+            transition:0.2s;
+        }
+        .mad-grocery-item-content span:nth-child(2){
+            width: calc(60% - 36px);
+            line-height:48px;
+        }
+        .mad-grocery-item-content span:nth-child(3){
+            display:block;
+            text-align:right;
+            width:calc(40% - 36px);
+            line-height:48px;
+        }
+        .mad-bags .mad-grocery-item:active{
+            background-color:#D9B444;
+        }
+        .active span:nth-child(1), .active span:nth-child(1) img{
+            background-color:#FEDF81;
+        }
+    	#mad-fridge-shelves{
+    		width:20%;
+    		background-color:#333;
+    		height:100%;
+    		border-radius:24px;
+    	}
+    	#mad-fridge-shelves h2{
+    		color:#f2f2f2;
+    	}
+        #mad-fridge-shelves .mad-grocery-item{
+            width:100%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    	#mad-fridge-list{
+    		width:40%;
+    	}
+    	.mad-clearfix{
+    		clear:both;
+    		margin-top: 1em;
+    		margin-bottom:1em;
+    	}
+    	#insertForm{
+            background-color:white;
+            width:100vw;
+            height:100vh;
+            position:absolute;
+            top: -100vh;
+            left:0;
+            z-index:2;
+            transition:0.3s ease-out;
+            text-align:center;
+        }
+        .mad-insert-input-container{
+            position:absolute;
+            padding:3em;
+            left:50%;
+            top: 50%;
+            transform:translateY(-50%) translateX(-50%);
+        }
+        .mad-insert-inputbox::placeholder, .mad-insert-datepicker::placeholder{
+            color:#828282;
+        }
+        .mad-insert-inputbox, .mad-insert-select, .mad-insert-datepicker{
+            font-size:18px;
+            width:250px;
+            border-color:transparent;
+            padding:0.5em 1em;
+            color:#333;
+            margin-bottom:1em;
+            color:#828282;
+            background-color:#ededed;
+            border-radius:8px;
+        }
+        .mad-insert-select option{
+            padding: 0.5em 1em;
+        }
+       
+        .mad-insert-confirm{
+            background-color:#f2c94c;
+            cursor:pointer;
+            width:250px;
+            line-height:100%;
+            font-size:18px;
+            color:#333;
+            border-radius:8px;
+            padding: 0.8em 1em;
+            border-color:transparent;
+            position:relative;
+        }
+        .mad-errors{
+            margin-top:1em;
+        }
+        .mad-errors li{
+            list-style-type:none;
+            color:#333;
+            padding:0.2em;
+        }
+        .mad-closing-button{
+            position:absolute;
+            top:0;
+            right:0;
+            width:24px;
+            height:24px;
+            margin-bottom:;
+
+        }
+        .mad-closing-button img{
+            height:100%;
+            width:100%;
+        }
+        #mad-custom-message{
+            position:absolute;
+            background-color:#f2c94c;
+            width:100vw;
+            height:100vh;
+            top:0;
+            left:-100vw;
+            z-index:3;
+            color:#2b2b2b;
+            transition:0.2s;
+        }
+        .mad-custom-message-wrapper{
+            position:absolute;
+            width:30%;
+            top:50%;
+            left:50%;
+            transform:translateY(-50%) translateX(-50%);
+        }
+        .mad-message-content{
+            margin-top:1em;
+            line-height:1.5em;
+        }
+        .mad-message-button{
+            padding:0.5em; 
+            border-radius:4px;
+            width:50px  ; 
+            margin-top:1em;
+            background-color:#333;
+            color:#EDEDED;
+        }
+
+        /* HOVER CSS */
+        #mad-shelve-all:hover{
+            background-color:#D9B444;
+            cursor:pointer;
+        }
+        .mad-tools-subcontainer:nth-child(2):hover{
+            cursor:pointer;
+            width:25%;
+        }
+        .mad-message-button:hover{
+            cursor:pointer;
+            background-color:#252525;
+        }
+        .mad-closing-button:hover{
+            cursor:pointer;
+        }
+        .mad-insert-confirm:hover{
+            background-color:#D9B444;
+        }
+        .mad-grocery-item:hover{
+            cursor:pointer;
+        }   
+        .mad-bags .mad-grocery-item:hover, #mad-fridge-shelves .mad-grocery-item:hover{
+            background-color:#f2c94c;
+            cursor:pointer;
+        }
+
+        .mad-bags .mad-grocery-item:hover img,  .mad-grocery-item:hover span:nth-child(1), .mad-fridge-shelves {
+             background-color:#FEDF81;
+            cursor:pointer;
+        }

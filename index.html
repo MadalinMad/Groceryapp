@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grocery app</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>	
+	<div id="mad-app">
+		  	<div class="mad-bags">
+		  		<div class="mad-section-header">
+		  			<div class="mad-section-title"><h2> Bags </h2></div>
+		  			<div id="mad-shelve-all" v-on:click="shelveAll"><img src="img/left.svg"></div>
+		  		</div>
+		  		<div class="mad-tools-container">
+		  			<div class="mad-tools-subcontainer">
+		  				<img src="img/search.svg"><input class="mad-inputbox"  class="mad-inputbox" v-model="bagListsearchbar" placeholder="Cerca" />
+		  			</div>  	
+		  		</div>		
+		  		<div class="mad-grocery-list">
+		  				<div draggable="false"  class="mad-grocery-item mad-nuovo" onclick="toggleInsertForm()">
+								<div class='mad-grocery-item-content'>
+									<span><img src="img/nuovo.svg"></span>
+									<span>Nuovo</span>
+								</div>
+						</div>
+		  				<grocery-item draggable="true"  class="mad-grocery-item"
+		  					v-if="item.name.includes(bagListsearchbar) || bagListsearchbar.length == 0 "
+		  					v-for="item in bagList"
+		  					v-bind:name="item"
+		  					v-bind:key="item.id"
+		  					v-on:dragstart.native="drag(item)">
+				</grocery-item>
+		  		</div>  				
+
+		  	</div>
+		  
+	  	<div id="mad-fridge-shelves" class="mad-fridge">
+	  			<div class="mad-section-header">
+		  			<div class="mad-section-title"><h2> Scaffali </h2></div>	
+		  		</div>
+		  		<shelf-item class="mad-grocery-item"
+						draggable="false"
+				  		v-for="shelf in fridge.shelves"
+				  		v-bind:name="shelf"
+				  		v-bind:key="shelf.id"
+				  		v-on:dragover.native="allowDrop($event)"
+				  		v-on:drop.native="dropOnShelf(shelf, $event)"
+				  		v-on:click.native="toggleVisibleCat(shelf)"
+				  		v-bind:class="{ active: visibleCat.toLowerCase().includes(shelf.name.toLowerCase()) }"
+				  		>
+				  	</shelf-item>
+	  	</div>
+
+	  	<div id="mad-fridge-list" class="mad-fridge">	
+	  		<div class="mad-section-header">
+		  			<div class="mad-section-title"><h2>Alimenti in frigo</h2></div>	
+		  	</div>
+		  	<div class="mad-tools-container">
+		  		<div class="mad-tools-subcontainer">
+		  			<img src="img/search.svg"><input class="mad-inputbox"  class="mad-inputbox" v-model="fridgeListSearchBar" placeholder="Cerca" />
+		  		</div>
+	  			<div class="mad-tools-subcontainer" v-on:click="toggleSort">
+	  				<div>Scadenza</div> <div id="mad-sorter" ><img v-bind:src="fridgeActiveOrder"></div>
+				</div>
+			</div>
+			<div class="mad-grocery-list">
+					<grocery-item draggable="true"  class="mad-grocery-item"
+				  		v-for="item in fullFridge()"
+				  		v-bind:name="item"
+				  		v-bind:key="item.id"
+				  		v-on:dragstart.native="drag(item)" 
+				  		v-if="(item.name.includes(fridgeListSearchBar) || fridgeListSearchBar.length == 0) && (visibleCat.toLowerCase() =='fridge'  || visibleCat.toLowerCase() == item.type.toLowerCase())">
+					</grocery-item>
+				</div>
+		</div>
+		<div class="mad-clearfix"></div>
+			<div id="insertForm">
+	  		<div class="mad-insert-input-container">
+	  			<div class="mad-closing-button" onclick="toggleInsertForm()">
+		  			<img src="img/close.svg">
+		  		</div>
+			<div>
+				<input class="mad-insert-inputbox" name="name" v-model="formData.name" placeholder="Nome">
+			</div>
+			<div>
+				<select class="mad-insert-select" name="type" v-model="formData.type" >
+					<option selected >Formaggio</option>
+					<option>Salumi</option>
+					<option>Verdure</option>
+					<option>Bibite</option>
+					<option>Altro</option>
+				</select>
+			</div>
+		<div>
+			<input class="mad-insert-datepicker" name="expiration" v-model="formData.expiration" type="date">
+		</div>
+		<input
+			class="mad-insert-confirm"
+	    	type="submit"
+	    	value="Inserisci"
+	    	v-on:click="checkAndInsert">
+	      	<ul class="mad-errors">
+	      		<li v-for="error in formData.errors">{{error}}</li>
+	      	</ul>
+		</div>
+	</div>
+	<div id="mad-custom-message">
+		<div class="mad-custom-message-wrapper">
+			<div class="mad-message-title"><h2>{{singleMessage.title}}<h2></div>
+			<div class="mad-message-content">{{singleMessage.content}}</div>
+			<div class="mad-message-button" onclick="initializeMessageForm()"><h3>{{singleMessage.action}}<h3></div>
+		</div>
+	</div>
+
+</div>	
+
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
